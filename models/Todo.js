@@ -38,6 +38,17 @@ const todoSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+todoSchema.index({ user: 1 });
+
+todoSchema.index({ status: 1 });
+
+todoSchema.index({ dueDate: 1 });
+
+todoSchema.index({ priority: 1 });
+
+todoSchema.index({ user: 1, status: 1 });
+todoSchema.index({ user: 1, dueDate: 1 });
+
 const Todo = mongoose.model('Todo', todoSchema);
 
 module.exports = Todo;

@@ -34,6 +34,15 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
+userSchema.index({ level: 1 });
+
+userSchema.index({ experienceYears: 1 });
+
+userSchema.index({ level: 1, experienceYears: 1 });
+
+userSchema.index({ displayName: 'text' });
+
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   
